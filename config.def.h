@@ -117,10 +117,7 @@ static const char *colorname[] = {
     "#8fbcbb", /* cyan    */
     "#eceff4", /* white   */
                                    
-    /* special colors */
-    [256] = "#282a36", /* background */
-    [257] = "#f8f8f2", /* foreground */
-
+    [255] = 0, 
     /* more colors can be added after 255 to use with DefaultXX */
     "#d8dee9", /* default foreground colour */
     "#2e3440", /* default background colour */
@@ -133,6 +130,7 @@ static const char *colorname[] = {
  */
 unsigned int defaultfg = 256;
 unsigned int defaultbg = 257;
+unsigned int defaultcs = 256;
 static unsigned int defaultrcs = 257;
 
 /*

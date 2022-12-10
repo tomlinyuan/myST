@@ -117,10 +117,7 @@ static const char *colorname[] = {
     "#8fbcbb", /* cyan    */
     "#eceff4", /* white   */
                                    
-    /* special colors */
-    [256] = "#282a36", /* background */
-    [257] = "#f8f8f2", /* foreground */
-
+    [255] = 0, 
     /* more colors can be added after 255 to use with DefaultXX */
     "#d8dee9", /* default foreground colour */
     "#2e3440", /* default background colour */
@@ -133,6 +130,7 @@ static const char *colorname[] = {
  */
 unsigned int defaultfg = 256;
 unsigned int defaultbg = 257;
+unsigned int defaultcs = 256;
 static unsigned int defaultrcs = 257;
 
 /*
@@ -143,14 +141,22 @@ static unsigned int defaultrcs = 257;
 unsigned int defaultitalic = 7;
 unsigned int defaultunderline = 7;
 
+
 /*
- * Default shape of cursor
- * 2: Block ("█")
- * 4: Underline ("_")
- * 6: Bar ("|")
- * 7: Snowman ("☃")
+* https://invisible-island.net/xterm/ctlseqs/ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-SP-q.1D81
+* Default style of cursor
+* 0: blinking block
+* 1: blinking block (default)
+* 2: steady block ("█")
+* 3: blinking underline
+* 4: steady underline ("_")
+* 5: blinking bar
+* 6: steady bar ("|")
+* 7: blinking st cursor
+* 8: steady st cursor
  */
-static unsigned int cursorshape = 4;
+static unsigned int cursorstyle = 3;
+static Rune stcursor = 0x2603; /* snowman ("☃") */
 
 /*
  * Default columns and rows numbers
